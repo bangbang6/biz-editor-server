@@ -1,6 +1,6 @@
 /**
  * @description 配置项
- * @author 双越
+ * @author 梦晚
  */
 
 const { isPrd, isPrdDev } = require("../utils/env");

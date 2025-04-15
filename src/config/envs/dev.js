@@ -1,6 +1,6 @@
 /**
  * @description dev 的数据库配置
- * @author 双越
+ * @author 梦晚
  */
 
 module.exports = {

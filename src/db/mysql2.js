@@ -1,6 +1,6 @@
 /**
  * @description mysql2 连接测试（暂时不用，先保留）
- * @author 双越
+ * @author 梦晚
  */
 
 const mysql = require("mysql2/promise");
