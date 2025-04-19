@@ -1,0 +1,57 @@
+version: "3"
+services:
+  editor-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: editor-server
+    container_name: editor-server
+    ports:
+      - 8081:3000
+  editor-redis:
+    image: redis # 引用官网的进项
+    container_name: editor_redis # 容器名字
+    ports:
+      - 6378:6379
+    environment:
+      - TZ=Asia/Shanghai
+  editor-mysql:
+    image: mysql:8.0 # 引用官网 mysql 镜像
+    container_name: editor-mysql
+    restart: always
+    privileged: true # 高权限，执行下面的 mysql/init
+    command:
+      [
+        "--default-authentication-plugin=caching_sha2_password",
+        "--character-set-server=utf8mb4",
+        "--collation-server=utf8mb4_general_ci",
+        "--explicit_defaults_for_timestamp=true",
+        "--lower_case_table_names=1",
+        "--max_allowed_packet=128M",
+        "--max_connections=3000",
+      ]
+    ports:
+      - 3305:3306 # 宿主机可以用 127.0.0.1:3305 即可连接容器中的数据库
+    volumes:
+      - .docker-volumes/mysql/log:/var/log/mysql # 数据持久化
+      - .docker-volumes/mysql/data:/var/lib/mysql
+      - .docker-volumes/mysql/conf/my.cnf:/etc/mysql/cnf
+    environment:
+      - MYSQL_DATABASE=lego_db # 初始化容器时创建数据库
+      - MYSQL_ROOT_PASSWORD=15798015790liao
+      # - MYSQL_USER=shuangyue #创建 test 用户
+      # - MYSQL_PASSWORD=shuangyue #设置 test 用户的密码
+      - TZ=Asia/Shanghai # 设置时区
+  editor-mongo:
+    image: mongo # 引用官网 mongo 镜像
+    container_name: editor-mongo
+    restart: always #容器报错就重启
+    volumes:
+      - ".docker-volumes/mongo/data:/data/db" # 数据持久化
+    environment:
+      - MONGO_INITDB_DATABASE=mw-cli-dev
+      # - MONGO_INITDB_ROOT_USERNAME=root
+      # - MONGO_INITDB_ROOT_PASSWORD=123456
+      - TZ=Asia/Shanghai # 设置时区
+    ports:
+      - "27016:27017" # 宿主机可以用 127.0.0.1:27016 即可连接容器中的数据库

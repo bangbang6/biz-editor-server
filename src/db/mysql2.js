@@ -4,7 +4,7 @@
  */
 
 const mysql = require("mysql2/promise");
-const { mysqlConf } = require("../config/index");
+const { mysqlConf } = require("../config/index.js");
 
 async function testMysqlConn() {
   const connection = await mysql.createConnection(mysqlConf);
