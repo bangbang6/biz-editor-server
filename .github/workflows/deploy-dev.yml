@@ -25,7 +25,7 @@ jobs:
       - name: deploy # 部署
         run: |
           ssh work@82.157.160.85 "
-            # 然后 git clone https://github.com/bangbang6/biz-editor-server.git -b dev （私有仓库，使用 github 用户名和密码）
+            # 然后 git1 clone https://github.com/bangbang6/biz-editor-server.git -b dev （私有仓库，使用 github 用户名和密码）
             # 记得删除 origin ，否则会暴露 github 密码
             cd /home/work/immoc-lego/biz-editor-server;
             git remote add origin https://github.com/bangbang6/biz-editor-server.git;
