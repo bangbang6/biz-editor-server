@@ -7,7 +7,7 @@ services:
     image: editor-server
     container_name: editor-server
     ports:
-      - 8081:3000
+      - 9091:3000
   editor-redis:
     image: redis # 引用官网的进项
     container_name: editor_redis # 容器名字
