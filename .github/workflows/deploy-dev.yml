@@ -19,9 +19,8 @@ jobs:
       - name: set ssh key # 临时设置 ssh key
         run: |
           mkdir -p ~/.ssh/
-          echo "${{secrets.WFP_ID_RSA}}" > ~/.ssh/id_rsa # secret 在这里配置 https://github.com/imooc-lego/biz-editor-server/settings/secrets #给4️私要给测试机
+          echo "${{secrets.WFP_ID_RSA}}" > ~/.ssh/id_rsa # secret 在这里配置 https://github.com/imooc-lego/biz-editor-server/settings/secrets #给4私要给测试机
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan "182.92.168.192" >> ~/.ssh/known_hosts # 不加这个会询问你确不确定
       - name: deploy # 部署
         run: |
           ssh work@182.92.182.92.168.192"
