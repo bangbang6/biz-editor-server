@@ -40,7 +40,7 @@ app.use(index.routes(), index.allowedMethods());
 
 // error-handling
 app.on("error", (err, ctx) => {
-  console.error("server error", err, ctx);
+  console.error("server error1", err, ctx);
 });
 
 module.exports = app;
