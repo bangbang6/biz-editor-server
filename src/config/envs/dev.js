@@ -57,5 +57,5 @@ module.exports = {
   },
 
   // 报警邮箱
-  adminMails: ["wangfupeng1988@163.com"],
+  adminMails: ["577174667@qq.com"],
 };

@@ -1,6 +1,6 @@
 const router = require("koa-router")();
 const { ENV } = require("../utils/env");
-const { WorkContentModel } = require("../models/WorksContentModel");
+const { WorkContentModel } = require("../models/WorkContentModel.js");
 const { cacheGet, cacheSet } = require("../cache/index.js");
 const testMysqlConn = require("../db/mysql2.js");
 const packageInfo = require("../../package.json");

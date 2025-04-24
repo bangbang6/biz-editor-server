@@ -15,10 +15,10 @@ const contentSchema = mongoose.Schema(
     // 配置信息，如微信分享配置
     setting: Object,
   },
-  { timestamps: true }
+  { timestamps: true } // createAt和updateAt会自动创建
 );
 
-// 为发布的内容
+// 未发布的内容
 const WorkContentModel = mongoose.model("workContent", contentSchema);
 
 // 发布的内容
