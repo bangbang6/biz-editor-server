@@ -40,10 +40,6 @@ module.exports = {
 
   // 阿里云 OSS 配置
   aliyunOSSConf: {
-    regin: "oss-cn-hangzhou",
-    accessKeyId: "LTAI5tCSUarydooXKw1SzvVM",
-    accessKeySecret: "GUJmRrkrv05Ka3eFwicxPh9oaIn8h8",
-    bucket: "mw-editor-server",
     // 此处省略 N 行代码
   },
   // 阿里云 OSS CDN 配置
@@ -56,12 +52,7 @@ module.exports = {
   },
 
   // 百度云内容审核
-  baiduCloudCensorConf: {
-    // 此处省略 N 行代码
-    APP_ID: "118729616",
-    API_KEY: "QhXei7TY2OR0d6cViRmm9U3x",
-    SECRET_KEY: "iUxmCKpAMb50VP8SqZcWwOLWpk8NqjND",
-  },
+  baiduCloudCensorConf: {},
 
   // 报警邮箱
   adminMails: ["577174667@qq.com"],
