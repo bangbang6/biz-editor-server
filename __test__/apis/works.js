@@ -85,27 +85,27 @@ test("获取自己的作品和模板", async () => {
   expect(list.length).toBeGreaterThan(0);
 });
 
-// test("发布作品", async () => {
-//   const url = `/api/works/publish/${WORK_ID}`;
-//   const { errno, data } = await post(url);
-//   expect(errno).toBe(0);
+test("发布作品", async () => {
+  const url = `/api/works/publish/${WORK_ID}`;
+  const { errno, data } = await post(url);
+  expect(errno).toBe(0);
 
-//   const { url: publishUrl } = data;
-//   console.log("publish url: ", url);
-//   expect(publishUrl).not.toBeNull();
-// });
+  const { url: publishUrl } = data;
+  console.log("publish url: ", url);
+  expect(publishUrl).not.toBeNull();
+});
 
-// test("发布为模板", async () => {
-//   const url = `/api/works/publish-template/${WORK_ID}`;
-//   const { errno, data } = await post(url);
-//   expect(errno).toBe(0);
-// });
+test("发布为模板", async () => {
+  const url = `/api/works/publish-template/${WORK_ID}`;
+  const { errno, data } = await post(url);
+  expect(errno).toBe(0);
+});
 
-// test("发布后，查询作品信息", async () => {
-//   const url = `/api/works/${WORK_ID}`;
-//   const { errno, data } = await get(url);
-//   expect(errno).toBe(0);
+test("发布后，查询作品信息", async () => {
+  const url = `/api/works/${WORK_ID}`;
+  const { errno, data } = await get(url);
+  expect(errno).toBe(0);
 
-//   expect(data.status).toBe("2");
-//   expect(data.isTemplate).toBe(true);
-// });
+  expect(data.status).toBe("2");
+  expect(data.isTemplate).toBe(true);
+});

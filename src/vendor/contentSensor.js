@@ -23,6 +23,7 @@ async function textCensor(text = "") {
   try {
     // 执行审核
     res = await client.textCensorUserDefined(text);
+    console.log("res======", res);
   } catch (ex) {
     console.error("百度云 textCensor 错误", ex);
     mailAlarm("百度云 textSensor 错误", ex); // 报警

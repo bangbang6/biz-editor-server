@@ -8,7 +8,7 @@
     "dev": "cross-env NODE_ENV=dev ./node_modules/.bin/nodemon bin/www --trace-warnings",
     "prd-dev": "cross-env NODE_ENV=prd_dev pm2 start bin/pm2-prd-dev.config.js",
     "prd": "cross-env NODE_ENV=production NODE_LOG_DIR=/tmp/editor-server ENABLE_NODE_LOG=YES pm2 start bin/pm2-prd.config.js",
-    "test:local": "cross-env NODE_ENV=test_local jest ",
+    "test:local": "cross-env NODE_ENV=test_local jest --runInBand  --passWithNoTests --colors --forceExit",
     "test:remote": "cross-env NODE_ENV=test_remote jest --runInBand  --passWithNoTests --colors --forceExit",
     "lint": "eslint \"src/**/*.{js,ts}\"",
     "lint-fix": "eslint --fix \"src/**/*.{js,ts}\"",

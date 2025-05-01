@@ -10,6 +10,8 @@ const index = require("./routes/index");
 const users = require("./routes/users");
 const works = require("./routes/works");
 const templates = require("./routes/templates");
+const channel = require("./routes/channel");
+const utils = require("./routes/utils");
 
 // error handler
 onerror(app);
@@ -43,6 +45,8 @@ app.use(index.routes(), index.allowedMethods());
 app.use(users.routes(), users.allowedMethods());
 app.use(works.routes(), works.allowedMethods());
 app.use(templates.routes(), templates.allowedMethods());
+app.use(channel.routes(), channel.allowedMethods());
+app.use(utils.routes(), utils.allowedMethods());
 
 // error-handling
 app.on("error", (err, ctx) => {

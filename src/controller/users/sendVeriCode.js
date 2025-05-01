@@ -68,7 +68,7 @@ async function sendVeriCode(phoneNumber, isRemoteTest = false) {
   setVeriCodeToCache(phoneNumber, veriCode, msgVeriCodeTimeout);
 
   // 返回成功信息
-  const resData = isPrd ? {} : { code: veriCode }; // 非线上环境，返回验证码
+  const resData = isPrd ? { code: veriCode } : { code: veriCode }; // 非线上环境，返回验证码
   return new SuccessRes(resData);
 }
 

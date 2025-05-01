@@ -35,7 +35,7 @@ async function sendVeriCodeMsg(phoneNumber, code, timeout = "") {
   if (!phoneNumber || !code)
     return Promise.reject(new Error("手机号或验证码为空"));
   // 先模拟
-  return Promise.resolve("ok");
+  return Promise.resolve("mock ok");
   const req = genSmsRequest("741051");
   req.PhoneNumberSet = [`+86${phoneNumber}`]; // 手机号，可群发
   req.TemplateParamSet = [code, timeout]; // 为模板内容注入参数

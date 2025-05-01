@@ -8,7 +8,7 @@ const {
   updateWorkService,
   findOneWorkService,
   updatePublishContentService,
-} = require("../../service/works");
+} = require("../../service/works.js");
 const { ErrorRes, SuccessRes } = require("../../res-model/index");
 const {
   publishWorkFailInfo,
@@ -18,7 +18,7 @@ const {
 const { h5Origin } = require("../../config/index");
 const { publishWorkClearCache } = require("../../cache/works/publish.js");
 const { textCensor, imgCensor } = require("../../vendor/contentSensor");
-const { isDev } = require("../../utils/env");
+const { isDev, isPrd } = require("../../utils/env");
 const { mailAlarm } = require("../../alarm/index");
 
 /**
@@ -128,7 +128,7 @@ async function publishWork(id, author, isTemplate = false) {
   }
 
   // 内容审核（非 dev 环境下）
-  if (!isDev) {
+  if (isPrd) {
     const censorResult = await contentCensor(work);
     if (censorResult) {
       // 审核失败，打印日志
