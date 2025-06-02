@@ -12,6 +12,7 @@ const works = require("./routes/works");
 const templates = require("./routes/templates");
 const channel = require("./routes/channel");
 const utils = require("./routes/utils");
+const cors = require("./middlewares/cors");
 
 // error handler
 onerror(app);
@@ -25,7 +26,8 @@ app.use(
 app.use(json());
 app.use(logger());
 app.use(require("koa-static")(__dirname + "/public"));
-
+// 支持跨域
+app.use(cors);
 app.use(
   views(__dirname + "/views", {
     extension: "pug",
