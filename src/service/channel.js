@@ -12,7 +12,9 @@ const ChannelModel = require("../models/ChannelModel");
  * @param {object} data 渠道数据
  */
 async function createChannelService(data = {}) {
+  console.log("data", data);
   const newChannel = await ChannelModel.create(data);
+  console.log("newChannel", newChannel);
   return newChannel.dataValues;
 }
 
@@ -24,7 +26,6 @@ async function createChannelService(data = {}) {
 async function updateChannelService(data = {}, whereOpt = {}) {
   if (_.isEmpty(whereOpt)) return false;
   if (_.isEmpty(data)) return false;
-
   const result = await ChannelModel.update(data, { where: whereOpt });
 
   return result[0] !== 0;
@@ -50,11 +51,11 @@ async function findChannelsService(whereOpt = {}) {
     ],
     where: whereOpt,
   });
-
+  console.log("result", result);
   // result.count 总数，忽略了 limit 和 offset
   // result.rows 查询结果，数组
   const list = result.rows.map((row) => row.dataValues);
-
+  console.log("list", list);
   return {
     count: result.count,
     list,

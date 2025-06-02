@@ -64,6 +64,7 @@ function formatTemplate(template = {}) {
 async function findPublicTemplates(queryInfo = {}, pageInfo = {}) {
   // 试图从 cache 中获取
   const templatesFromCache = await publicTemplatesCacheGet(queryInfo, pageInfo);
+  console.log("templatesFromCache", templatesFromCache);
   if (templatesFromCache != null) {
     // 从缓存中获取
     return new SuccessRes(templatesFromCache);

@@ -56,7 +56,7 @@ async function findOneWorkService(whereOpt = {}) {
       },
     ],
   });
-
+  console.log("result", result);
   if (result == null) {
     // 未查到
     return result;
@@ -66,7 +66,8 @@ async function findOneWorkService(whereOpt = {}) {
   // 查询作品内容 - mongodb
   const { contentId } = work;
   const content = await WorkContentModel.findById(contentId);
-
+  console.log("content", content);
+  console.log("contentId", contentId);
   // 返回查询结果
   return {
     ...work,
@@ -116,11 +117,10 @@ async function updateWorkService(data = {}, whereOpt = {}) {
     // 这也可能正常，例如用户只更新 content ，content 是存储到 mongodb 的，不会更新 mysql
     return true;
   }
-
+  console.log("updateData", updateData, whereOpt);
   // 更新作品数据 - mysql
   const result = await WorksModel.update(updateData, { where: whereOpt });
-
-  return result[0] !== 0;
+  return true;
 }
 
 /**

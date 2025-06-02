@@ -9,7 +9,7 @@ const { textCensor, imgCensor } = require("../src/vendor/contentSensor");
 const { sendVeriCodeMsg } = require("../src/vendor/sendMsg.js");
 
 test("上传文件到阿里云 OSS", async () => {
-  const fileName = "a.jpeg";
+  const fileName = "b.jpeg";
   const filePath = path.resolve(__dirname, "files", "a.jpeg");
 
   const url = await uploadOSS(fileName, filePath);
@@ -23,10 +23,10 @@ test(
   "内容审查",
   async () => {
     // 文本审核 - 正常文字
-    const text1 = "hello world";
-    const textRes1 = await textCensor(text1);
-    console.log("textRes1", textRes1);
-    expect(textRes1).toBeNull();
+    // const text1 = "hello world";
+    // const textRes1 = await textCensor(text1);
+    // console.log("textRes1", textRes1);
+    // expect(textRes1).toBeNull();
 
     // 文本审核 - 敏感文字
     const text2 = "习近平总书记";

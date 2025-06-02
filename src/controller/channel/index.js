@@ -55,6 +55,7 @@ async function deleteChannel(id) {
         id,
       }
     );
+    console.log("result==", result);
   } catch (ex) {
     console.error("删除渠道错误", ex);
     return new ErrorRes(updateChannelDbErrorFailInfo);

@@ -21,6 +21,7 @@ const { mailAlarm } = require("../../alarm/index");
  * @param {object} data 作品数据
  */
 async function updateWorks(id, author, data = {}) {
+  console.log("author", author);
   // 保证数据不为空
   if (!id || !author)
     return new ErrorRes(updateWorkFailInfo, "id 或 author 不能为空");
@@ -35,7 +36,7 @@ async function updateWorks(id, author, data = {}) {
     mailAlarm(`更新作品 ${id} 错误`, ex); // 报警。title 中要有作品 id ，报警会根据 title 缓存节流
     return new ErrorRes(updateWorkDbErrorFailInfo); // 数据库错误
   }
-
+  console.log("res", res);
   // 更新成功
   if (res) return new SuccessRes();
   // 更新失败

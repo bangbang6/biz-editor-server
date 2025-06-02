@@ -37,7 +37,8 @@ router.post("/", loginCheck, genValidator(workInfoSchema), async (ctx) => {
 router.get("/:id", loginCheck, async (ctx) => {
   const { id } = ctx.params;
   const { username } = ctx.userInfo;
-
+  console.log("username", username);
+  console.log("id", id);
   const res = await findOneWork(id, username);
   ctx.body = res;
 });
